@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const League = (props) => {
     const { strLeague, strLeagueAlternate, strSport, idLeague } = props.league;
@@ -11,23 +12,31 @@ const League = (props) => {
             .then(response => response.json())
             .then(data => setLeague(data.leagues[0]))
     }, [])
+
     const { strBadge } = league;
-    console.log(league);
+    // console.log(league);
+
+    const cardStyle = {
+        width: '25rem',
+        height: '35rem',
+        marginBottom: '40px',
+        padding: '5px'
+    }
 
     return (
-        <div>
-            <Card style={{ width: '20rem' }}>
+        <Col>
+            <Card style={cardStyle}>
                 <Card.Img variant="top" src={strBadge} />
                 <Card.Body>
                     <Card.Title>{strLeague}</Card.Title>
                     <Card.Text>
-                        <p>Also call As: {strLeagueAlternate}</p>
+
                         <p>Game Type: {strSport}</p>
                     </Card.Text>
-                    <Button variant="primary">More Details</Button>
+                    <Link to={`/league/${idLeague}`}><Button variant="primary">More Details</Button></Link>
                 </Card.Body>
             </Card>
-        </div>
+        </Col>
     );
 };
 

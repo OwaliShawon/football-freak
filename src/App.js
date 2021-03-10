@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Home from './components/Home/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import LeagueDetails from './components/LeagueDetails/LeagueDetails';
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
         </Route>
         <Route exact path="/">
           <Home />
+        </Route>
+        <Route path="/league/:idLeague">
+          <LeagueDetails></LeagueDetails>
         </Route>
       </Switch>
     </Router>

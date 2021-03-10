@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import Header from '../Header/Header';
 import League from '../League/League';
 
 const Home = () => {
@@ -13,11 +15,26 @@ const Home = () => {
     // console.log(leagues);
     // const lg = leagues.leagues;
 
+    //     const leagueStyles = {
+    //         display: 'grid',
+    //         gridGap: '50px',
+    //         gridTemplateColumns: 'auto auto auto',
+    //         backgroundColor: '#2196F3',
+    //         padding: '10px',
+
+    // }
+
     return (
+
         <div>
-            {
-                leagues.map(league => <League league={league}></League>)
-            }
+            <Header></Header>
+            <Container fluid style={{ backgroundColor: 'blue' }}>
+                <Row>
+                    {
+                        leagues.map(league => <League league={league}></League>)
+                    }
+                </Row>
+            </Container>
         </div>
     );
 };
