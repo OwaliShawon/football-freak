@@ -11,7 +11,7 @@ const League = (props) => {
         fetch(url)
             .then(response => response.json())
             .then(data => setLeague(data.leagues[0]))
-    }, [idLeague])
+    }, [idLeagues])
 
     const { strBadge } = league;
 
