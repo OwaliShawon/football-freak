@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import Header from '../Header/Header';
 import League from '../League/League';
 
@@ -11,18 +11,6 @@ const Home = () => {
             .then(response => response.json())
             .then(data => setLeagues(data.leagues))
     }, [])
-
-    // console.log(leagues);
-    // const lg = leagues.leagues;
-
-    //     const leagueStyles = {
-    //         display: 'grid',
-    //         gridGap: '50px',
-    //         gridTemplateColumns: 'auto auto auto',
-    //         backgroundColor: '#2196F3',
-    //         padding: '10px',
-
-    // }
 
     return (
 

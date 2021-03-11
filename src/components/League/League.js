@@ -3,7 +3,7 @@ import { Button, Card, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const League = (props) => {
-    const { strLeague, strLeagueAlternate, strSport, idLeague } = props.league;
+    const { strLeague, strSport, idLeague } = props.league;
 
     const [league, setLeague] = useState([])
     useEffect(() => {
@@ -11,10 +11,9 @@ const League = (props) => {
         fetch(url)
             .then(response => response.json())
             .then(data => setLeague(data.leagues[0]))
-    }, [])
+    }, [idLeague])
 
     const { strBadge } = league;
-    // console.log(league);
 
     const cardStyle = {
         width: '25rem',

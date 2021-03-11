@@ -1,28 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Container, Image, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import './LeagueDetails.css';
 import Male from '../../Images/male.png';
 import Female from '../../Images/female.png';
-// import Mixed from '../../Images/mixed.png';
-import ImageField from '../../Images/field.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import facebook from '../../Icon/Facebook.png'
 import twitter from '../../Icon/Twitter.png'
 import youtube from '../../Icon/YouTube.png'
+import { faFlag, faFootballBall, faMapPin, faTransgender } from '@fortawesome/free-solid-svg-icons';
 
 const LeagueDetails = () => {
     const { idLeague } = useParams();
-    // console.log(idLeague);
     const [league, setLeague] = useState([]);
     useEffect(() => {
         const url = `https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=${idLeague}`
         fetch(url)
             .then(response => response.json())
             .then(data => setLeague(data.leagues[0]))
-    }, [])
+    }, [idLeague])
 
-    // console.log(league);
     const { strLeague, strBadge, strBanner, strCountry, intFormedYear, strGender, strSport, strFacebook, strTwitter, strYoutube } = league;
 
     const imageStyle = {
@@ -63,16 +60,15 @@ const LeagueDetails = () => {
                 <img style={imageStyle} src={strBadge} alt="" />
             </div>
 
-
             <div style={{ backgroundColor: 'green', paddingTop: '10px' }}>
                 <Container>
                     <Row id="league-info">
                         <Col id="str-info">
                             <h3>{strLeague}</h3>
-                            <p>Founded: {intFormedYear}</p>
-                            <p>Country: {strCountry}</p>
-                            <p>Sport Type: {strSport}</p>
-                            <p>Gender: {strGender}</p>
+                            <p><FontAwesomeIcon icon={faMapPin}></FontAwesomeIcon>  Founded: {intFormedYear}</p>
+                            <p><FontAwesomeIcon icon={faFlag}></FontAwesomeIcon>  Country: {strCountry}</p>
+                            <p><FontAwesomeIcon icon={faFootballBall}></FontAwesomeIcon>  Sport Type: {strSport}</p>
+                            <p><FontAwesomeIcon icon={faTransgender}></FontAwesomeIcon>  Gender: {strGender}</p>
                         </Col>
                         <Col>{gender}</Col>
                     </Row>
@@ -95,13 +91,9 @@ const LeagueDetails = () => {
                         <Col> <a href={`https://${strFacebook}`}><img style={{ height: '50px', width: 'auto' }} src={facebook} alt="" /></a> </Col>
                         <Col> <a href={`https://${strTwitter}`}><img style={{ height: '50px', width: 'auto' }} src={twitter} alt="" /></a> </Col>
                         <Col> <a href={`https://${strYoutube}`}><img style={{ height: '50px', width: 'auto' }} src={youtube} alt="" /></a> </Col>
-
-
                     </Row>
                 </Container>
-                {/* <FontAwesomeIcon icon={faMoneyBillAlt} /> */}
             </div>
-
         </div >
     );
 };
