@@ -28,7 +28,7 @@ const Home = () => {
 
         <div>
             <Header></Header>
-            <Container fluid style={{ backgroundColor: 'blue' }}>
+            <Container fluid style={{ backgroundColor: 'blue', paddingTop: '50px' }}>
                 <Row>
                     {
                         leagues.map(league => <League league={league}></League>)

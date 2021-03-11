@@ -20,7 +20,9 @@ const League = (props) => {
         width: '25rem',
         height: '35rem',
         marginBottom: '40px',
-        padding: '5px'
+        padding: '5px',
+        // alignItems: 'center',
+        // justifyContent: 'center',
     }
 
     return (
@@ -30,7 +32,6 @@ const League = (props) => {
                 <Card.Body>
                     <Card.Title>{strLeague}</Card.Title>
                     <Card.Text>
-
                         <p>Game Type: {strSport}</p>
                     </Card.Text>
                     <Link to={`/league/${idLeague}`}><Button variant="primary">More Details</Button></Link>
