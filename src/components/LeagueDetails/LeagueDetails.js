@@ -60,7 +60,7 @@ const LeagueDetails = () => {
                 <img style={imageStyle} src={strBadge} alt="" />
             </div>
 
-            <div style={{ backgroundColor: 'green', paddingTop: '10px' }}>
+            <div style={{ backgroundColor: 'orange', paddingTop: '10px' }}>
                 <Container>
                     <Row id="league-info">
                         <Col id="str-info">
@@ -87,10 +87,10 @@ const LeagueDetails = () => {
                     </p>
                 </Container>
                 <Container>
-                    <Row style={{ marginTop: '30px' }}>
-                        <Col> <a href={`https://${strFacebook}`}><img style={{ height: '50px', width: 'auto' }} src={facebook} alt="" /></a> </Col>
-                        <Col> <a href={`https://${strTwitter}`}><img style={{ height: '50px', width: 'auto' }} src={twitter} alt="" /></a> </Col>
-                        <Col> <a href={`https://${strYoutube}`}><img style={{ height: '50px', width: 'auto' }} src={youtube} alt="" /></a> </Col>
+                    <Row style={{ marginTop: '30px', display: 'flex', justifyContent: 'center' }}>
+                        <a href={`https://${strFacebook}`}><img style={{ height: '50px', width: 'auto' }} src={facebook} alt="" /></a>
+                        <a href={`https://${strTwitter}`}><img style={{ height: '50px', width: 'auto' }} src={twitter} alt="" /></a>
+                        <a href={`https://${strYoutube}`}><img style={{ height: '50px', width: 'auto' }} src={youtube} alt="" /></a>
                     </Row>
                 </Container>
             </div>

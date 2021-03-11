@@ -6,7 +6,7 @@ const Header = () => {
         height: '300px',
         width: '100%',
         backgroundImage: `url(${Image})`,
-        color: 'red',
+        color: 'orange',
         align: 'center',
         position: 'relative',
         textAlign: 'center'
