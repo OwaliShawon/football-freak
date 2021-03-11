@@ -6,6 +6,10 @@ import Male from '../../Images/male.png';
 import Female from '../../Images/female.png';
 // import Mixed from '../../Images/mixed.png';
 import ImageField from '../../Images/field.jpg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import facebook from '../../Icon/Facebook.png'
+import twitter from '../../Icon/Twitter.png'
+import youtube from '../../Icon/YouTube.png'
 
 const LeagueDetails = () => {
     const { idLeague } = useParams();
@@ -44,6 +48,15 @@ const LeagueDetails = () => {
         textAlign: 'center'
     }
 
+    let gender;
+    if (strGender === 'Male') {
+        gender = <img style={{ width: '20rem' }} src={Male} alt="" />
+
+    } else if (strGender === 'Female') {
+        gender = <img style={{ width: '20rem' }} src={Female} alt="" />
+
+    }
+
     return (
         <div>
             <div style={headerStyle}>
@@ -51,7 +64,7 @@ const LeagueDetails = () => {
             </div>
 
 
-            <div style={{ backgroundColor: 'green' }}>
+            <div style={{ backgroundColor: 'green', paddingTop: '10px' }}>
                 <Container>
                     <Row id="league-info">
                         <Col id="str-info">
@@ -61,13 +74,11 @@ const LeagueDetails = () => {
                             <p>Sport Type: {strSport}</p>
                             <p>Gender: {strGender}</p>
                         </Col>
-                        <Col id="gender-base-image">
-                            <img style={{ width: '20rem' }} src={Male} alt="" />
-                        </Col>
+                        <Col>{gender}</Col>
                     </Row>
                 </Container>
 
-                <Container>
+                <Container style={{ marginTop: '30px' }}>
                     <p>
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus magnam soluta, fugit illum nobis ab quia libero et labore ratione aspernatur dicta veniam. Similique est doloribus optio et, veniam laborum.
                         Tempore velit harum quidem possimus asperiores voluptatem blanditiis officia repudiandae inventore repellendus earum assumenda, esse, magnam ad quo excepturi fugiat porro doloribus aliquam reiciendis iure! Officia tempore quam reprehenderit. Animi!
@@ -80,15 +91,18 @@ const LeagueDetails = () => {
                     </p>
                 </Container>
                 <Container>
-                    <Row>
-                        <Col>{strFacebook}</Col>
-                        <Col>{strTwitter}</Col>
-                        <Col>{strYoutube}</Col>
+                    <Row style={{ marginTop: '30px' }}>
+                        <Col> <a href={`https://${strFacebook}`}><img style={{ height: '50px', width: 'auto' }} src={facebook} alt="" /></a> </Col>
+                        <Col> <a href={`https://${strTwitter}`}><img style={{ height: '50px', width: 'auto' }} src={twitter} alt="" /></a> </Col>
+                        <Col> <a href={`https://${strYoutube}`}><img style={{ height: '50px', width: 'auto' }} src={youtube} alt="" /></a> </Col>
+
+
                     </Row>
                 </Container>
+                {/* <FontAwesomeIcon icon={faMoneyBillAlt} /> */}
             </div>
 
-        </div>
+        </div >
     );
 };
 
