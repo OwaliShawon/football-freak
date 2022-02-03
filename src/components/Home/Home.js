@@ -6,7 +6,7 @@ import League from '../League/League';
 const Home = () => {
     const [leagues, setLeagues] = useState([]);
     useEffect(() => {
-        const url = 'https://www.thesportsdb.com/api/v1/json/1/all_leagues.php';
+        const url = 'https://www.thesportsdb.com/api/v1/json/2/all_leagues.php';
         fetch(url)
             .then(response => response.json())
             .then(data => setLeagues(data.leagues))

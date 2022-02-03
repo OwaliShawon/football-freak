@@ -1,20 +1,20 @@
+import { faFlag, faFootballBall, faMapPin, faTransgender } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useParams } from 'react-router';
-import './LeagueDetails.css';
-import Male from '../../Images/male.png';
+import facebook from '../../Icon/Facebook.png';
+import twitter from '../../Icon/Twitter.png';
+import youtube from '../../Icon/YouTube.png';
 import Female from '../../Images/female.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import facebook from '../../Icon/Facebook.png'
-import twitter from '../../Icon/Twitter.png'
-import youtube from '../../Icon/YouTube.png'
-import { faFlag, faFootballBall, faMapPin, faTransgender } from '@fortawesome/free-solid-svg-icons';
+import Male from '../../Images/male.png';
+import './LeagueDetails.css';
 
 const LeagueDetails = () => {
     const { idLeague } = useParams();
     const [league, setLeague] = useState([]);
     useEffect(() => {
-        const url = `https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=${idLeague}`
+        const url = `https://www.thesportsdb.com/api/v1/json/2/lookupleague.php?id=${idLeague}`
         fetch(url)
             .then(response => response.json())
             .then(data => setLeague(data.leagues[0]))
